@@ -43,10 +43,16 @@ Middleware is functions that take an action and depending on the action's type a
 
 **6. redux-promise package**
 
-Help handle Ajax request inside of our application. [[Github]](https://github.com/acdlite/redux-promise) In this case, Redux-Promise seizes the in-coming action, looks at specifically the `payload` property. If the payload is a **promise**, Redux-Promise stops the action entirely. Then once the request dinishes, it dispatches a new action of the same type but with a payload of the **resolved request** -- data. Then reducers know how to handle it. (Try `console.log('Action received', action);` in reducer_weather.js together with `console.log('Request: ', request);` in actions/index.js)
+Help handle Ajax request inside of our application. [[Github]](https://github.com/acdlite/redux-promise) In this case, Redux-Promise seizes the in-coming action, looks at specifically the `payload` property. If the payload is a **promise**, Redux-Promise stops the action entirely. Then once the request dinishes, it dispatches a new action of the same type but with a payload of the **resolved request** -- data. Then reducers only need to care about `action.payload.data`. (Try `console.log('Action received', action);` in reducer_weather.js together with `console.log('Request: ', request);` in actions/index.js)
 
 **7. Ajax Request**
 
 Application state holds all the data of our application, including weather data. We only change our application state through reducers and actions. **Axios** [[Example]](https://github.com/axios/axios#example) is a library solely made for making Ajax requests rom the browser. 
 
-**8. **
+**8. Avoid State Mutations in Reducers**
+
+Codes like `state.push(action.payload.data)` will throw error. (We don't manipulate dtate directly, instead should use `.setState`) In this case, the better approach is return a new array of weather data, by using array function `concat()`, which doesn't change the existing array, but creates a new array, so we return a new version of state. In ES6 style, `return [ action.payload.data, ...state ];` will do the same thing.
+
+**9. react-sparklines package** [[Github]](https://github.com/borisyankov/react-sparklines)
+
+Sparklines component for React, now supporting line chart and bar chart.
