@@ -1,9 +1,8 @@
 # Redux Weather Forecaster
 
-## Sketch
+## Screenshot
 
-<img width="390" alt="weather sketch" src="https://user-images.githubusercontent.com/20265633/35716760-dce41b52-07a8-11e8-9338-5f90aeeed3e1.PNG">
-
+<img width="741" alt="weather google map" src="https://user-images.githubusercontent.com/20265633/35827149-ed8f1e6a-0a88-11e8-9938-1e57d491e984.png">
 
 ## Challenges
 
@@ -56,3 +55,12 @@ Codes like `state.push(action.payload.data)` will throw error. (We don't manipul
 **9. react-sparklines package** [[Github]](https://github.com/borisyankov/react-sparklines)
 
 Sparklines component for React, now supporting line chart and bar chart.
+
+**10. Google Maps Integrate / Ref in React**
+
+The ref system allows us to get a direct reference to an HTML element that has been rendered to the page. So after GoogleMap component has been rendered to the screen, we can have a direct reference to the div `<div ref="map" />` by referring to `this.refs.map` anywhere else in the component. `google.maps.Map()` will take a reference to each HTML node where we want to render this map to, which in this case is the `<div>` with property `ref="map"`.
+
+**11. componentDidMount()**
+
+componentDidMount() is one of react lifecycle methods that gets called automatically after the component has been rendered to screen.
+
